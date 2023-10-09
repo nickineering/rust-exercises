@@ -1,11 +1,20 @@
-fn fib (second_last: i32, last: i32, more: i32) -> i32 {
-    let sum = second_last + last;
-    if more <= 0 {
-        return sum
+fn fizz_buzz(num: i32) -> String {
+    let mut result = String::from("");
+    if num % 3 == 0 {
+        result += "Fizz "
     }
-    fib(last, sum, more - 1)
+    if num % 5 == 0 {
+        result += "Buzz "
+    }
+    if result == "" {
+        result += &format!("{} ", num);
+    }
+    result
 }
 
+
 fn main () {
-    println!("Result: {}", fib(1, 2, 6))
+    for num in 1..100 {
+        println!("{}", fizz_buzz(num));
+    }
 }
